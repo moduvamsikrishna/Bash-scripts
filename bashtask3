@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Get the directory name from the user
+echo "Enter the directory name to backup: "
+read DIR
+
+# Get the backup file name from the user
+echo "Enter the backup file name: "
+read BACKUP_FILE
+
+# Create the backup file
+tar -czf $BACKUP_FILE $DIR
+
+# Print a message confirming the backup
+echo "Backup of $DIR created successfully."

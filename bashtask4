@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Update the system packages
+sudo apt update
+
+# Install nginx
+sudo apt install nginx
+
+# Start nginx
+sudo systemctl start nginx
+
+# Check if nginx is running
+sudo systemctl status nginx

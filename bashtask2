@@ -1,0 +1,10 @@
+#!/bin/bash
+
+# Get the number of files to create from the user
+echo "Enter the number of files to create: "
+read NUM_FILES
+
+# Create the files
+for i in $(seq 1 $NUM_FILES); do
+  touch file-$i.txt
+done

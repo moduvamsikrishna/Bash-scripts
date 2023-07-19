@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Check if Nginx is running
+if systemctl status nginx | grep -q "Active: active (running)"; then
+  echo "Nginx is already running."
+else
+  echo "Nginx is not running. Starting Nginx..."
+  systemctl start nginx
+fi

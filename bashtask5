@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# Update the system packages
+sudo apt update
+
+# Install Java JDK
+sudo apt install openjdk-11-jdk
+
+# Download Apache Tomcat
+wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.65/bin/apache-tomcat-9.0.65.tar.gz
+
+# Extract Apache Tomcat
+tar -xvf apache-tomcat-9.0.65.tar.gz
+
+# Move Apache Tomcat to /usr/local/tomcat
+mv apache-tomcat-9.0.65 /usr/local/tomcat
+
+# Change ownership of Apache Tomcat
+sudo chown -R tomcat:tomcat /usr/local/tomcat
+
+# Start Apache Tomcat
+sudo /usr/local/tomcat/bin/startup.sh
+
+# Check if Apache Tomcat is running
+sudo /usr/local/tomcat/bin/catalina.sh status
