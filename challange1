@@ -1,0 +1,23 @@
+#!/bin/bash
+# AWS EC2 Instance Configuration
+instance_type="t2.micro"
+image_id="ami-006935d9a6773e4ec" # Specify the desired AMI ID
+key_name="linuxkeypair"
+security_group_id="sg-070420f61f0591490"  # Specify the security group ID
+subnet_id="subnet-0ca81798872671f0c" # Specify the subnet ID
+tag_name="shell"
+# Provision EC2 instance
+instance_id=$(aws ec2 run-instances \
+  --image-id "$image_id" \
+  --instance-type "$instance_type" \
+  --key-name "$key_name" \
+  --security-group-ids "$security_group_id" \
+  --subnet-id "$subnet_id" \
+  --tag-specifications "ResourceType=instance,Tags=[{Key=Name,Value=$tag_name}]" \
+  --query "Instances[0].InstanceId" \
+  --output text)
+# Check if instance creation was successful
+if [ -n "$instance_id" ]; then
+  echo "EC2 instance created with ID: $instance_id"
+fi
+

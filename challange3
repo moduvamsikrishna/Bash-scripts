@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Install nginx
+
+sudo apt update
+sudo apt install nginx
+
+# Set the nginx port to 80
+
+sudo nano /etc/nginx/nginx.conf
+
+# Find the line that says "listen 80;"
+
+# Change the 80 to 80
+
+# Save and close the file
+
+sudo nginx -t
+sudo systemctl restart nginx
+
+# Verify that nginx is running on port 80
+
+netstat -ln | grep nginx

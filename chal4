@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Install httpd
+
+sudo apt update
+sudo apt install -y httpd
+
+# Edit the httpd.conf file
+
+sudo nano /etc/apache2/httpd.conf
+
+# Find the line that says "Listen 80;"
+
+# Change the 80 to 81
+
+# Save and close the file
+
+sudo service apache2 restart
+
+# Verify that httpd is running on port 81
+
+netstat -ln | grep httpd

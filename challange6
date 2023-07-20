@@ -1,0 +1,23 @@
+#!/bin/bash
+
+# Install Apache Tomcat
+
+sudo apt update
+sudo apt install tomcat
+
+# Create a directory for the sample war application
+
+mkdir /opt/tomcat/webapps/sample
+
+# Copy the sample war application to the directory
+
+cp sample.war /opt/tomcat/webapps/sample/
+
+# Start Apache Tomcat
+
+sudo service tomcat start
+
+# Open a web browser and go to the following URL:
+
+http://localhost:8080/sample
+
